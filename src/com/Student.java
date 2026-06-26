@@ -33,6 +33,15 @@ public class Student {
         this.score =  score;
     }
 
+    public String getPassStatus(){
+        if (score >= 60 ){
+            return PassStatus.PASSED.getLabel();
+        } else {
+            return PassStatus.FAILED.getLabel();
+        }
+
+    }
+
 
     public static void updateScore(ArrayList<Student> students, int id, int score) {
         Student student = findById(students, id);
