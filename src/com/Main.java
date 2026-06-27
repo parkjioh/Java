@@ -8,7 +8,6 @@ public class Main {
         ArrayList<Student> students= new ArrayList<>();
         students.add(new Student( 1, "qq", 80));
         printAll(students);
-        Student.updateScore(students,1,99);
         printAll(students);
 
 
