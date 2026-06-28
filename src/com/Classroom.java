@@ -30,7 +30,7 @@ public class Classroom {
     }
 
     public List<Student> getPassedStudents() {
-        return students.stream().filter(student -> student.getScore() >= 60).toList();
+        return students.stream().filter(student -> student.getPassStatus() == PassStatus.PASSED.getLabel()).toList();
     }
 
     public Optional<Student> findTopStudent() {
