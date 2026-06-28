@@ -9,8 +9,8 @@ public class Classroom {
 
     private final  List<Student> students;
 
-    public Classroom(List<Student> students) {
-        this.students = students;
+    public Classroom() {
+        this.students = new ArrayList<>();
     }
 
     public void addStudent(Student student) {
@@ -23,10 +23,14 @@ public class Classroom {
 
 
 
-    public Optional<Student> findById(ArrayList<Student> students, int id) {
+    public Optional<Student> findById(int id) {
        return students.stream()
                .filter(student -> student.getId() == id)
                .findFirst();
+    }
+
+    public List<Student> getPassedStudents() {
+        return students.stream().filter(student -> student.getScore() >= 60).toList();
     }
 
     public Optional<Student> findTopStudent() {
@@ -34,7 +38,7 @@ public class Classroom {
                 .max((first, second) -> Integer.compare(first.getScore(), second.getScore()));
     }
 
-    public List<Student> searchByNmae(ArrayList<Student> students,String name) {
+    public List<Student> searchByName(String name) {
         return students.stream()
                 .filter(student ->  student.getName().contains(name))
                 .collect(Collectors.toList());
